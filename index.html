@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Yuwell — Présentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <style>
+        /* Oswald — polices locales (static/landing_pages/yuwell/fonts/) */
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-ExtraLight.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-Extra-LightItalic.ttf') format('truetype');
+            font-weight: 200;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-Heavy.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+  /* Typo — validation Designer : Work Sans */
+  --lp-font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --lp-font-heading: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  /* Charte proposée — corporate */
+  --lp-bg: #FFFFFF;
+  --lp-text: #333333;
+  --lp-primary: #E60012;
+  --lp-secondary: #00C2D1;
+  --lp-border: #90C2D3;
+  --lp-block-bg: #F5F5F5;
+  --lp-muted: #5c6b7a;
+  --lp-heading: #333333;
+  --lp-cta-text: #ffffff;
+  /* Charte proposée — couleurs par gamme (étude yuwell-portfolio-etude-graphique.md) */
+  --yuwell-respiratoire: #00C2D1;
+  --yuwell-respiratoire-bleu: #0078A8;
+  --yuwell-respiratoire-gris: #90C2D3;
+  --yuwell-diagnostic: #57B894;
+  --yuwell-diagnostic-vert: #3F8D68;
+  --yuwell-diagnostic-desature: #AACFBF;
+  --yuwell-soins-domicile: #4DA6A1;
+  --yuwell-soins-domicile-clair: #8FC7C4;
+  --yuwell-soins-domicile-gris: #BECFD1;
+  --yuwell-mobilite: #7A7A7A;
+  --yuwell-mobilite-orange: #E08E3C;
+  --yuwell-urgence-alerte: #C5281C;
+}
+
+        :root {
+            --lp-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --lp-section-padding: clamp(3rem, 8vw, 5rem);
+            --lp-font-extralight: 'Oswald', 'Work Sans', system-ui, sans-serif;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--lp-font-body, var(--lp-font-extralight));
+            font-weight: 200;
+            margin: 0;
+            min-height: 100vh;
+            background: transparent;
+            color: var(--lp-text, #333333);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: color-mix(in srgb, var(--lp-bg) 94%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid color-mix(in srgb, var(--lp-primary) 50%, transparent);
+        }
+        .nav-logo { font-weight: 700; font-size: 1.25rem; color: var(--lp-primary, #E60012); text-decoration: none; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--lp-muted); text-decoration: none; transition: color 0.2s var(--lp-ease); }
+        .nav-links a:hover { color: var(--lp-primary); }
+        .nav-links a.active { color: var(--lp-primary); font-weight: 600; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero.has-bg-video .hero-bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -5000;
+            overflow: hidden;
+        }
+        .hero.has-bg-video .hero-bg-video video,
+        .hero.has-bg-video .hero-bg-video iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw; height: 56.25vw;
+            min-height: 100vh; min-width: 177.78vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: 0;
+        }
+        .hero.has-bg-video .hero-bg-video video { object-fit: cover; }
+        .hero.has-bg-video .hero-video-fallback {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 4;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            pointer-events: auto;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.6);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .hero.has-bg-video .hero-video-fallback:hover {
+            color: #fff;
+            background: rgba(0,0,0,0.8);
+            text-decoration: none;
+        }
+        .hero.has-bg-video::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -4980;
+            background: linear-gradient(180deg, rgba(230, 0, 18, 0.12) 0%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+        .hero.has-bg-video::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -4980;
+            background: repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+            pointer-events: none;
+        }
+        /* Parallaxe : vidéo z-index -5000, overlay z-index -4980 — contenu toujours devant */
+        .hero.has-bg-video h1,
+        .hero.has-bg-video .hero-sub,
+        .hero.has-bg-video .hero-video-fallback { position: relative; z-index: 5; }
+        .hero.has-bg-video h1,
+        .hero.has-bg-video .hero-sub { color: #fff; }
+        .hero h1 {
+            font-family: var(--lp-font-heading, 'Inter', inherit);
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 0 0 1rem;
+            color: var(--lp-heading);
+            letter-spacing: -0.02em;
+            max-width: 24ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .hero-sub {
+            font-family: var(--lp-font-extralight);
+            font-weight: 200;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--lp-muted, rgba(255,255,255,0.75));
+            margin: 0;
+            max-width: 36ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            padding: var(--lp-section-padding) 1.5rem;
+            max-width: 720px;
+            margin: 0 auto;
+            background: color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+        }
+        .section:nth-of-type(odd) {
+            background: color-mix(in srgb, var(--lp-primary, #E60012) 5%, color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent));
+        }
+        .section:nth-of-type(even) {
+            background: color-mix(in srgb, var(--lp-secondary, #00C2D1) 4%, color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent));
+        }
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--lp-primary);
+        }
+        .section:nth-of-type(even) .section-head { border-left-color: var(--lp-secondary); }
+        .section-num { font-size: 0.85rem; font-weight: 700; color: var(--lp-primary); min-width: 2rem; }
+        .section:nth-of-type(even) .section-num { color: var(--lp-secondary); }
+        .section h2 {
+            font-family: var(--lp-font-heading, 'Inter', inherit);
+            font-size: clamp(1.35rem, 3vw, 1.75rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--lp-heading);
+            letter-spacing: -0.01em;
+        }
+        .section p { margin: 0 0 0.75rem; font-weight: 300; }
+        .section .section-num { font-weight: 700; letter-spacing: 0.02em; }
+        .section p:last-child { margin-bottom: 0; }
+        .yuwell-thin { font-weight: 100; }
+        .yuwell-extralight { font-weight: 200; }
+
+        .card {
+            padding: 1.5rem;
+            background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 90%, transparent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--lp-border, #90C2D3);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .card:last-child { margin-bottom: 0; }
+        .card a { color: var(--lp-primary); font-weight: 600; text-decoration: none; }
+        .card a:hover { text-decoration: underline; }
+
+        .yuwell-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+        .yuwell-table th, .yuwell-table td { border: 1px solid var(--lp-border, #90C2D3); padding: 0.5rem 0.75rem; text-align: left; }
+        .yuwell-table th { background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 90%, transparent); font-weight: 600; color: var(--lp-heading, #333333); }
+        .swatch { width: 2.5rem; height: 1.5rem; border-radius: 2px; border: 1px solid rgba(0,0,0,0.1); display: inline-block; vertical-align: middle; }
+        .palette-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0; }
+        .palette-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .gamme-block { margin-bottom: 1.5rem; padding: 1rem; background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; border-left: 4px solid var(--lp-secondary, #00C2D1); }
+        .gamme-block:last-child { margin-bottom: 0; }
+        .gamme-block h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--lp-heading); }
+        .gamme-block p { margin: 0 0 0.75rem; font-size: 0.9rem; color: var(--lp-muted); }
+        /* À propos — bloc intro (portrait + texte) */
+        .yuwell-a-propos-intro { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.5rem; margin-bottom: 1rem; }
+        .yuwell-a-propos-portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid var(--lp-border, #90C2D3); }
+        .yuwell-a-propos-body { flex: 1; min-width: 280px; }
+        .yuwell-a-propos-body p { margin: 0 0 0.75rem; }
+        .yuwell-a-propos-body p:last-child { margin-bottom: 0; }
+    </style>
+    
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Yuwell</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Présentation</a>
+            <a href="study-case.html" class="">Study case</a>
+            <a href="study-case-2.html" class="">Study case 2</a>
+            <a href="charte-graphique.html" class="">Charte graphique</a>
+            <a href="a-propos.html" class="">À propos</a>
+        </div>
+    </nav>
+
+    <main id="top">
+        <section class="hero has-bg-video">
+            
+            
+            
+            <div class="hero-bg-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/6pNskp5ZMqA?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=6pNskp5ZMqA&amp;controls=0&amp;rel=0&amp;showinfo=0" title="Vidéo d'ambiance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen aria-hidden="true"></iframe>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6pNskp5ZMqA" target="_blank" rel="noopener noreferrer" class="hero-video-fallback">Regarder sur YouTube</a>
+            
+            
+            
+    <h1>Portfolio Yuwell</h1>
+    <p class="hero-sub">Étude graphique : système couleur &amp; charte par gamme produit</p>
+
+        </section>
+        
+<section class="section">
+    <div class="section-head"><span class="section-num">01</span><h2>Bienvenue</h2></div>
+    <p>Ce portfolio présente une <strong>étude graphique</strong> pour Yuwell (dispositifs médicaux) : système couleur structurant par gamme produit, principes de design et charte. Vous pouvez explorer les différentes parties ci‑dessous.</p>
+    <div class="card">
+        <p><strong>Study case</strong> — Contexte, objectifs, principes de design, déclinaison par gamme, palettes et règles d'usage.</p>
+        <p><a href="study-case.html">Voir le study case →</a></p>
+    </div>
+    <div class="card">
+        <p><strong>Study case 2</strong> — Second cas d'étude (à compléter).</p>
+        <p><a href="study-case-2.html">Voir le study case 2 →</a></p>
+    </div>
+    <div class="card">
+        <p><strong>Charte graphique</strong> — Palette corporate, palettes par gamme produit (HEX, RGB, Pantone), règles d'usage.</p>
+        <p><a href="charte-graphique.html">Voir la charte graphique →</a></p>
+    </div>
+    <div class="card">
+        <p><strong>À propos de moi</strong> — Parcours et approche design.</p>
+        <p><a href="a-propos.html">En savoir plus →</a></p>
+    </div>
+</section>
+
+    </main>
+    
+<script>
+(function() {
+    if (typeof window === 'undefined') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) window.scrollTo(0, 0);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        window.scrollTo(0, 0);
+    });
+})();
+</script>
+
+</body>
+</html>

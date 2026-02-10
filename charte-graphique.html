@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Yuwell — Charte graphique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <style>
+        /* Oswald — polices locales (static/landing_pages/yuwell/fonts/) */
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-ExtraLight.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-Extra-LightItalic.ttf') format('truetype');
+            font-weight: 200;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Oswald';
+            src: url('static/landing_pages/yuwell/fonts/Oswald-Heavy.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+  /* Typo — validation Designer : Work Sans */
+  --lp-font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --lp-font-heading: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  /* Charte proposée — corporate */
+  --lp-bg: #FFFFFF;
+  --lp-text: #333333;
+  --lp-primary: #E60012;
+  --lp-secondary: #00C2D1;
+  --lp-border: #90C2D3;
+  --lp-block-bg: #F5F5F5;
+  --lp-muted: #5c6b7a;
+  --lp-heading: #333333;
+  --lp-cta-text: #ffffff;
+  /* Charte proposée — couleurs par gamme (étude yuwell-portfolio-etude-graphique.md) */
+  --yuwell-respiratoire: #00C2D1;
+  --yuwell-respiratoire-bleu: #0078A8;
+  --yuwell-respiratoire-gris: #90C2D3;
+  --yuwell-diagnostic: #57B894;
+  --yuwell-diagnostic-vert: #3F8D68;
+  --yuwell-diagnostic-desature: #AACFBF;
+  --yuwell-soins-domicile: #4DA6A1;
+  --yuwell-soins-domicile-clair: #8FC7C4;
+  --yuwell-soins-domicile-gris: #BECFD1;
+  --yuwell-mobilite: #7A7A7A;
+  --yuwell-mobilite-orange: #E08E3C;
+  --yuwell-urgence-alerte: #C5281C;
+}
+
+        :root {
+            --lp-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --lp-section-padding: clamp(3rem, 8vw, 5rem);
+            --lp-font-extralight: 'Oswald', 'Work Sans', system-ui, sans-serif;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--lp-font-body, var(--lp-font-extralight));
+            font-weight: 200;
+            margin: 0;
+            min-height: 100vh;
+            background: transparent;
+            color: var(--lp-text, #333333);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: color-mix(in srgb, var(--lp-bg) 94%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid color-mix(in srgb, var(--lp-primary) 50%, transparent);
+        }
+        .nav-logo { font-weight: 700; font-size: 1.25rem; color: var(--lp-primary, #E60012); text-decoration: none; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--lp-muted); text-decoration: none; transition: color 0.2s var(--lp-ease); }
+        .nav-links a:hover { color: var(--lp-primary); }
+        .nav-links a.active { color: var(--lp-primary); font-weight: 600; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero.has-bg-video .hero-bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -5000;
+            overflow: hidden;
+        }
+        .hero.has-bg-video .hero-bg-video video,
+        .hero.has-bg-video .hero-bg-video iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw; height: 56.25vw;
+            min-height: 100vh; min-width: 177.78vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: 0;
+        }
+        .hero.has-bg-video .hero-bg-video video { object-fit: cover; }
+        .hero.has-bg-video .hero-video-fallback {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 4;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            pointer-events: auto;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.6);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .hero.has-bg-video .hero-video-fallback:hover {
+            color: #fff;
+            background: rgba(0,0,0,0.8);
+            text-decoration: none;
+        }
+        .hero.has-bg-video::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -4980;
+            background: linear-gradient(180deg, rgba(230, 0, 18, 0.12) 0%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+        .hero.has-bg-video::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            z-index: -4980;
+            background: repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
+            pointer-events: none;
+        }
+        /* Parallaxe : vidéo z-index -5000, overlay z-index -4980 — contenu toujours devant */
+        .hero.has-bg-video h1,
+        .hero.has-bg-video .hero-sub,
+        .hero.has-bg-video .hero-video-fallback { position: relative; z-index: 5; }
+        .hero.has-bg-video h1,
+        .hero.has-bg-video .hero-sub { color: #fff; }
+        .hero h1 {
+            font-family: var(--lp-font-heading, 'Inter', inherit);
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 0 0 1rem;
+            color: var(--lp-heading);
+            letter-spacing: -0.02em;
+            max-width: 24ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .hero-sub {
+            font-family: var(--lp-font-extralight);
+            font-weight: 200;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--lp-muted, rgba(255,255,255,0.75));
+            margin: 0;
+            max-width: 36ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            padding: var(--lp-section-padding) 1.5rem;
+            max-width: 720px;
+            margin: 0 auto;
+            background: color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+        }
+        .section:nth-of-type(odd) {
+            background: color-mix(in srgb, var(--lp-primary, #E60012) 5%, color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent));
+        }
+        .section:nth-of-type(even) {
+            background: color-mix(in srgb, var(--lp-secondary, #00C2D1) 4%, color-mix(in srgb, var(--lp-bg, #FFFFFF) 88%, transparent));
+        }
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--lp-primary);
+        }
+        .section:nth-of-type(even) .section-head { border-left-color: var(--lp-secondary); }
+        .section-num { font-size: 0.85rem; font-weight: 700; color: var(--lp-primary); min-width: 2rem; }
+        .section:nth-of-type(even) .section-num { color: var(--lp-secondary); }
+        .section h2 {
+            font-family: var(--lp-font-heading, 'Inter', inherit);
+            font-size: clamp(1.35rem, 3vw, 1.75rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--lp-heading);
+            letter-spacing: -0.01em;
+        }
+        .section p { margin: 0 0 0.75rem; font-weight: 300; }
+        .section .section-num { font-weight: 700; letter-spacing: 0.02em; }
+        .section p:last-child { margin-bottom: 0; }
+        .yuwell-thin { font-weight: 100; }
+        .yuwell-extralight { font-weight: 200; }
+
+        .card {
+            padding: 1.5rem;
+            background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 90%, transparent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--lp-border, #90C2D3);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .card:last-child { margin-bottom: 0; }
+        .card a { color: var(--lp-primary); font-weight: 600; text-decoration: none; }
+        .card a:hover { text-decoration: underline; }
+
+        .yuwell-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+        .yuwell-table th, .yuwell-table td { border: 1px solid var(--lp-border, #90C2D3); padding: 0.5rem 0.75rem; text-align: left; }
+        .yuwell-table th { background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 90%, transparent); font-weight: 600; color: var(--lp-heading, #333333); }
+        .swatch { width: 2.5rem; height: 1.5rem; border-radius: 2px; border: 1px solid rgba(0,0,0,0.1); display: inline-block; vertical-align: middle; }
+        .palette-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0; }
+        .palette-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+        .gamme-block { margin-bottom: 1.5rem; padding: 1rem; background: color-mix(in srgb, var(--lp-block-bg, #F5F5F5) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; border-left: 4px solid var(--lp-secondary, #00C2D1); }
+        .gamme-block:last-child { margin-bottom: 0; }
+        .gamme-block h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--lp-heading); }
+        .gamme-block p { margin: 0 0 0.75rem; font-size: 0.9rem; color: var(--lp-muted); }
+        /* À propos — bloc intro (portrait + texte) */
+        .yuwell-a-propos-intro { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.5rem; margin-bottom: 1rem; }
+        .yuwell-a-propos-portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid var(--lp-border, #90C2D3); }
+        .yuwell-a-propos-body { flex: 1; min-width: 280px; }
+        .yuwell-a-propos-body p { margin: 0 0 0.75rem; }
+        .yuwell-a-propos-body p:last-child { margin-bottom: 0; }
+    </style>
+    
+<style>
+    /* Mise en situation — préceptes hiérarchie & cas d'usage */
+    .mise-en-situation-intro { margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--lp-muted); }
+    .mock-cards { display: grid; gap: 1rem; margin-top: 1rem; }
+    @media (min-width: 640px) { .mock-cards { grid-template-columns: repeat(3, 1fr); } }
+    .mock-card {
+        background: #FFFFFF;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--lp-border, #90C2D3);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .mock-card .mock-band { height: 6px; }
+    .mock-card .mock-card-inner { padding: 1rem; }
+    .mock-card .mock-titre { font-size: 1rem; font-weight: 700; color: #333333; margin: 0 0 0.5rem; }
+    .mock-card .mock-gamme-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .mock-card .mock-body { font-size: 0.85rem; color: #333333; line-height: 1.5; margin: 0; }
+    .mock-card .mock-alerte { font-size: 0.75rem; font-weight: 600; color: #FFFFFF; background: var(--yuwell-urgence-alerte, #C5281C); padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 0.5rem; display: inline-block; }
+    .mock-legend { margin-top: 1.5rem; padding: 1rem; background: var(--lp-block-bg, #F5F5F5); border-radius: 8px; font-size: 0.85rem; }
+    .mock-legend dt { font-weight: 600; color: var(--lp-heading); margin-top: 0.5rem; }
+    .mock-legend dd { margin: 0.25rem 0 0 1rem; color: var(--lp-muted); }
+</style>
+
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Yuwell</a>
+        <div class="nav-links">
+            <a href="index.html" class="">Présentation</a>
+            <a href="study-case.html" class="">Study case</a>
+            <a href="study-case-2.html" class="">Study case 2</a>
+            <a href="charte-graphique.html" class="active">Charte graphique</a>
+            <a href="a-propos.html" class="">À propos</a>
+        </div>
+    </nav>
+
+    <main id="top">
+        <section class="hero has-bg-video">
+            
+            
+            
+            <div class="hero-bg-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/6pNskp5ZMqA?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=6pNskp5ZMqA&amp;controls=0&amp;rel=0&amp;showinfo=0" title="Vidéo d'ambiance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen aria-hidden="true"></iframe>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6pNskp5ZMqA" target="_blank" rel="noopener noreferrer" class="hero-video-fallback">Regarder sur YouTube</a>
+            
+            
+            
+    <h1>Charte graphique</h1>
+    <p class="hero-sub">Palettes corporate et par gamme — HEX, RGB, Pantone</p>
+
+        </section>
+        
+<section class="section" id="corporate">
+    <div class="section-head"><span class="section-num">01</span><h2>Palette corporate (marque mère)</h2></div>
+    <table class="yuwell-table">
+        <thead>
+            <tr>
+                <th>Aperçu</th>
+                <th>Usage</th>
+                <th>Nom</th>
+                <th>HEX</th>
+                <th>RGB</th>
+                <th>Pantone</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><span class="swatch" style="background-color: #E60012;"></span></td>
+                <td>Marque principale</td>
+                <td>Yuwell Red</td>
+                <td><code>#E60012</code></td>
+                <td>230, 0, 18</td>
+                <td>PANTONE 186 C</td>
+            </tr>
+            
+            <tr>
+                <td><span class="swatch" style="background-color: #FFFFFF;"></span></td>
+                <td>Neutre principal</td>
+                <td>Pure White</td>
+                <td><code>#FFFFFF</code></td>
+                <td>255, 255, 255</td>
+                <td>PANTONE White</td>
+            </tr>
+            
+            <tr>
+                <td><span class="swatch" style="background-color: #F5F5F5;"></span></td>
+                <td>Neutre secondaire</td>
+                <td>Cool Gray</td>
+                <td><code>#F5F5F5</code></td>
+                <td>245, 245, 245</td>
+                <td>PANTONE Cool Gray 1 C</td>
+            </tr>
+            
+            <tr>
+                <td><span class="swatch" style="background-color: #333333;"></span></td>
+                <td>Texte principal</td>
+                <td>Dark Charcoal</td>
+                <td><code>#333333</code></td>
+                <td>51, 51, 51</td>
+                <td>PANTONE 426 C</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+<section class="section" id="gammes">
+    <div class="section-head"><span class="section-num">02</span><h2>Palettes par gamme produit</h2></div>
+    
+    <div class="gamme-block">
+        <h3>Solutions respiratoires</h3>
+        <p>Concentrateurs d’oxygène, nébuliseurs, aspiration — Bleu clair / cyan médical.</p>
+        <div class="palette-grid">
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #00C2D1;"></span>
+                <span>Cyan médical — #00C2D1 · 3125 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #0078A8;"></span>
+                <span>Bleu moyen — #0078A8 · 7699 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #90C2D3;"></span>
+                <span>Bleu grisé — #90C2D3 · 544 C</span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="gamme-block">
+        <h3>Diagnostic &amp; monitoring</h3>
+        <p>Tensiomètres, oxymètres, thermomètres — Vert médical doux.</p>
+        <div class="palette-grid">
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #57B894;"></span>
+                <span>Vert stable — #57B894 · 7496 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #3F8D68;"></span>
+                <span>Vert moyen — #3F8D68 · 3292 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #AACFBF;"></span>
+                <span>Vert désaturé — #AACFBF · 565 C</span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="gamme-block">
+        <h3>Soins à domicile &amp; chronic care</h3>
+        <p>Suivi long terme, patients chroniques — Teal doux.</p>
+        <div class="palette-grid">
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #4DA6A1;"></span>
+                <span>Teal doux — #4DA6A1 · 7718 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #8FC7C4;"></span>
+                <span>Teal clair — #8FC7C4 · 3245 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #BECFD1;"></span>
+                <span>Gris bleuté — #BECFD1 · 656 C</span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="gamme-block">
+        <h3>Mobilité &amp; rééducation</h3>
+        <p>Fauteuils roulants, aides à la mobilité — Gris structurant + accent.</p>
+        <div class="palette-grid">
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #7A7A7A;"></span>
+                <span>Cool Slate — #7A7A7A · Cool Gray 9 C</span>
+            </div>
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #E08E3C;"></span>
+                <span>Orange attention — #E08E3C · 7584 C</span>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="gamme-block">
+        <h3>Équipements cliniques &amp; urgence</h3>
+        <p>DAE, équipements hospitaliers — Rouge désaturé (alerte uniquement).</p>
+        <div class="palette-grid">
+            
+            <div class="palette-item">
+                <span class="swatch" style="background-color: #C5281C;"></span>
+                <span>Rouge sécurisé — #C5281C · 186 C (désaturé)</span>
+            </div>
+            
+        </div>
+    </div>
+    
+</section>
+
+<section class="section" id="mise-en-situation">
+    <div class="section-head"><span class="section-num">03</span><h2>Mise en situation</h2></div>
+    <p class="mise-en-situation-intro">Les blocs ci-dessous appliquent les préceptes de la charte : <strong>hiérarchisation</strong> (corporate → gamme → usage) et <strong>déclinaison par cas d’usage</strong>. Le contenu est en lorem ipsum ; l’enjeu est de montrer la structure et l’attribution des couleurs.</p>
+    <div class="mock-cards">
+        <div class="mock-card">
+            <div class="mock-band" style="background-color: var(--yuwell-respiratoire);"></div>
+            <div class="mock-card-inner">
+                <p class="mock-gamme-label" style="color: var(--yuwell-respiratoire-bleu);">Solutions respiratoires</p>
+                <h3 class="mock-titre">Fiche produit type</h3>
+                <p class="mock-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
+        </div>
+        <div class="mock-card">
+            <div class="mock-band" style="background-color: var(--yuwell-diagnostic);"></div>
+            <div class="mock-card-inner">
+                <p class="mock-gamme-label" style="color: var(--yuwell-diagnostic-vert);">Diagnostic & monitoring</p>
+                <h3 class="mock-titre">Fiche produit type</h3>
+                <p class="mock-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
+        </div>
+        <div class="mock-card">
+            <div class="mock-band" style="background-color: var(--yuwell-mobilite);"></div>
+            <div class="mock-card-inner">
+                <p class="mock-gamme-label" style="color: var(--yuwell-mobilite);">Équipements cliniques & urgence</p>
+                <h3 class="mock-titre">Fiche produit type</h3>
+                <p class="mock-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                <span class="mock-alerte" style="background-color: var(--yuwell-urgence-alerte);">Alerte — usage encadré</span>
+            </div>
+        </div>
+    </div>
+    <dl class="mock-legend">
+        <dt>Hiérarchisation appliquée</dt>
+        <dd><strong>Corporate</strong> : titre et texte en Dark Charcoal (#333333) sur fond blanc ; bandeau supérieur = couleur de <strong>gamme</strong> (identification immédiate de la famille produit).</dd>
+        <dt>Cas d’usage</dt>
+        <dd><strong>Respiratoire</strong> : cyan (#00C2D1) en bandeau, bleu moyen (#0078A8) en label. <strong>Diagnostic</strong> : vert stable (#57B894) en bandeau, vert moyen (#3F8D68) en label. <strong>Urgence</strong> : gris (Cool Slate) en bandeau ; <strong>rouge sécurisé (#C5281C)</strong> réservé à l’alerte (jamais en fond large).</dd>
+    </dl>
+</section>
+
+<section class="section" id="regles">
+    <div class="section-head"><span class="section-num">04</span><h2>Règles d’usage</h2></div>
+    <p>Une gamme = une couleur dominante. Maximum deux couleurs de gamme sur un même support. Le bleu corporate reste prioritaire. Couleurs de gamme pour orienter, pas décorer. Contraste texte/fond et accessibilité (daltonisme, lisibilité) intégrés dès la conception.</p>
+</section>
+
+    </main>
+    
+<script>
+(function() {
+    if (typeof window === 'undefined') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) window.scrollTo(0, 0);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        window.scrollTo(0, 0);
+    });
+})();
+</script>
+
+</body>
+</html>

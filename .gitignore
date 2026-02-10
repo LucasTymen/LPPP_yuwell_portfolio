@@ -1,0 +1,3 @@
+# Fichiers système (éviter de les pousser si on versionne ce dossier depuis la machine)
+.DS_Store
+Thumbs.db
